@@ -16,7 +16,7 @@ function calc_current_vector_four(new_mv) {
 move_v = new Vector2(0, 0)
 prev_v = new Vector2(0, 0)
 cur_v = new Vector2(0, 0)
-interp_mod = 2 // 'slippery' factor
+interp_mod = 2 // 'slip' factor
 
 /*	
 Standard rotation duration (rotation with a change in magnitude of 1) occurs
