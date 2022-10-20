@@ -7,7 +7,6 @@
     {"id":{"name":"Vector2","path":"scripts/Vector2/Vector2.yy",},"order":0,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"obj_player_three","path":"objects/obj_player_three/obj_player_three.yy",},"order":2,},
-    {"id":{"name":"obj_player_five","path":"objects/obj_player_five/obj_player_five.yy",},"order":4,},
     {"id":{"name":"obj_player_two","path":"objects/obj_player_two/obj_player_two.yy",},"order":1,},
     {"id":{"name":"obj_player_one","path":"objects/obj_player_one/obj_player_one.yy",},"order":0,},
     {"id":{"name":"spr_enemy","path":"sprites/spr_enemy/spr_enemy.yy",},"order":1,},
