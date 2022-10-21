@@ -1,3 +1,15 @@
+// begin:	state handling
+enum PlayerState {
+	Idle,
+	Move,
+	Attack,
+	Grapple,
+}
+
+player_state = PlayerState.Idle
+// end:		state handling
+// begin:	movement
+// vector based movement with rotational interpolation
 function calc_current_vector_four(new_mv) {
 	if (!equals_v2(new_mv, move_v)) {
 		move_v = new_mv
@@ -31,3 +43,16 @@ step_val = 0.1 // time value of a frame
 time_scale = 1 // rotation duration
 time = 0 // time value of the current frame
 sp = 10 // speed modifier
+
+// end:		movement
+// begin:	grapple
+function enter_grapple_state() {
+	player_state = PlayerState.Grapple
+}
+// end grapple
+// begin:	action handling
+// end:		action handling
+
+function handle_state_actions() {
+	
+}

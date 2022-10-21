@@ -1,3 +1,4 @@
+// vector based movement with linear interpolation
 function calc_current_vector_three(new_mv) {
 	if (!equals_v2(new_mv, move_v)) {
 		move_v = new_mv

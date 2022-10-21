@@ -13,6 +13,7 @@
     {"id":{"name":"obj_player_two","path":"objects/obj_player_two/obj_player_two.yy",},"order":1,},
     {"id":{"name":"obj_player_one","path":"objects/obj_player_one/obj_player_one.yy",},"order":0,},
     {"id":{"name":"spr_enemy","path":"sprites/spr_enemy/spr_enemy.yy",},"order":1,},
+    {"id":{"name":"spr_grapple","path":"sprites/spr_grapple/spr_grapple.yy",},"order":4,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
