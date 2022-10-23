@@ -7,6 +7,7 @@ enum PlayerState {
 }
 
 player_state = PlayerState.Idle
+
 // end:		state handling
 // begin:	movement
 // vector based movement with rotational interpolation
@@ -33,7 +34,7 @@ function normalize_move_by_state(move_v) {
 			break;
 		case PlayerState.Grapple:
 		case PlayerState.Attack:
-			return normal_cap_v2(move_v, global_speed_cap)
+			return normal_cap_v2(move_v, special_speed_cap)
 			break;
 	}
 }
@@ -60,7 +61,7 @@ move_v = new Vector2(0, 0)
 prev_v = new Vector2(0, 0)
 cur_v = new Vector2(0, 0)
 interp_mod = 0.1
-interp_degrade_rate = 0.2
+#macro interp_degrade_rate 0.05
 #macro interp_const 0.1 // 'slippery' factor
 
 /*	
@@ -76,7 +77,8 @@ step_val = 0.1 // time value of a frame
 time_scale = 0 // rotation duration
 time = 0 // time value of the current frame
 #macro sp 10 // speed modifier
-#macro global_speed_cap 15
+#macro special_speed_cap 15
+#macro global_speed_cap 25
 // end:		movement
 // begin:	grapple
 // Grapple functionality here is WIP
@@ -87,17 +89,16 @@ function end_grapple() {
 }
 
 
-/*function calc_grapple_vector_mod() {
+function calc_grapple_vector_mod() {
 	grapple_vector = new Vector2(grapple_target.x - x, grapple_target.y - y)
 	grapple_distance = min(magnitude_v2(grapple_vector), grapple_distance_scale)
-	return scale_v2(grapple_vector, (1.01 - grapple_distance/grapple_distance_scale) * grapple_sp_mod)
-}*/
+	return scale_v2(grapple_vector, (grapple_distance/grapple_distance_scale) * grapple_sp_mod)
+}
 
-
-function calc_grapple_vector_mod() {
+/*function calc_grapple_vector_mod() {
 	grapple_vector = unit_v2(new Vector2(grapple_target.x - x, grapple_target.y - y))
 	return scale_v2(grapple_vector, grapple_sp)
-}
+}*/
 
 function check_grapple_conditions() {
 	if (place_meeting(x, y, grapple_target))
@@ -126,21 +127,25 @@ function handle_grapple_key_press() {
 
 grapple_target = noone
 grapple_distance_scale = 0
-grapple_sp_mod = 0.1
-#macro grapple_sp 15
-#macro grapple_interp_mod 0.5
+#macro grapple_sp_mod 0.1
+//#macro grapple_sp 15
+#macro grapple_interp_mod 0.2
 // end grapple
 // begin:	sprite handling
 function handle_sprite_by_state() {
 	switch player_state {
 		case PlayerState.Idle:
-		break;
+			sprite_index = spr_player_idle
+			break;
 		case PlayerState.Move:
-		break;
+			sprite_index = spr_player_moving
+			break;
 		case PlayerState.Attack:
-		break;
+			//sprite_index = spr_player_attack
+			break;
 		case PlayerState.Grapple:
-		break;
+			sprite_index = spr_player_grappling
+			break;
 	}
 }
 // end:		sprite handling
