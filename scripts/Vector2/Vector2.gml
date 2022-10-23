@@ -9,6 +9,12 @@ function unit_v2(v) {
 	return new Vector2(v.x/mag, v.y/mag)
 }
 
+function normalize_v2(v, scalar) {
+	if (zero_v2(v)) return v
+	mag = magnitude_v2(v)
+	return new Vector2(v.x/mag * scalar, v.y/mag * scalar)
+}
+
 function scale_v2(v, scalar) {
 	return new Vector2(v.x * scalar, v.y * scalar)
 }
