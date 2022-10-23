@@ -38,3 +38,8 @@ function magnitude_v2(v) {
 function zero_v2(v) {
 	return v.x == 0 && v.y == 0
 }
+
+function interpolate_rot_v2(v1, v2, t, T) {
+	if T == 0 return new Vector2(v2.x, v2.y)
+	return add_v2(scale_v2(v1, cos(t/T * pi/2)), scale_v2(v2, sin(t/T * pi/2)))
+}
