@@ -8,13 +8,17 @@ var h_move = key_right - key_left
 var v_move = key_down - key_up
 var mod_v  = new Vector2(0, 0)
 
-var interp_mod = interp_const
+// Each frame, degrade the interp mod towards the interp_const
+interp_mod = max(interp_mod - interp_degrade_rate, interp_const)
 
 if key_grapple {
 	handle_grapple_key_press()
 }
 
 if player_state == PlayerState.Grapple {
+	draw_set_colour(c_black)
+	draw_line(x, y, grapple_target.x, grapple_target.y)
+	interp_mod = max(interp_mod, grapple_interp_mod)
 	mod_v = add_v2(mod_v, calc_grapple_vector_mod())
 	check_grapple_conditions()
 }
@@ -24,9 +28,7 @@ if player_state == PlayerState.Grapple {
 new_mv = add_v2(scale_v2(unit_v2(new Vector2(h_move, v_move)), sp), mod_v)
 show_debug_message(json_stringify(new_mv))
 cur_v = calc_current_vector(new_mv, interp_mod)
-if magnitude_v2(cur_v) > sp && 
-   (player_state == PlayerState.Idle || player_state == PlayerState.Move)
-	cur_v = normalize_v2(cur_v, sp)
+cur_v = normalize_move_by_state(cur_v)
 
 x += cur_v.x
 y += cur_v.y

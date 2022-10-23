@@ -21,4 +21,3 @@ interp_mod = 1
 step_val = 0.1
 time_scale = 1
 time = 0
-sp = 10

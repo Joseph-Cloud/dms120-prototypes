@@ -15,6 +15,13 @@ function normalize_v2(v, scalar) {
 	return new Vector2(v.x/mag * scalar, v.y/mag * scalar)
 }
 
+function normal_cap_v2(v, scalar) {
+	if magnitude_v2(v) > scalar
+		return normalize_v2(v, scalar)
+	else
+		return new Vector2(v.x, v.y)
+}
+
 function scale_v2(v, scalar) {
 	return new Vector2(v.x * scalar, v.y * scalar)
 }
