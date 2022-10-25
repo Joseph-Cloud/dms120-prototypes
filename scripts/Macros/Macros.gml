@@ -1,0 +1,1 @@
+#macro global_speed_cap 20

@@ -1,1 +1,0 @@
-grappleable = true

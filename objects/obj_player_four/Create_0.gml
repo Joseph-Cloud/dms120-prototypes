@@ -60,9 +60,10 @@ function calc_current_vector(new_mv, interp_mod) {
 move_v = new Vector2(0, 0)
 prev_v = new Vector2(0, 0)
 cur_v = new Vector2(0, 0)
+mod_v = new Vector2(0, 0)
 interp_mod = 0.1
-#macro interp_degrade_rate 0.05
-#macro interp_const 0.1 // 'slippery' factor
+interp_degrade_rate = 0.05
+interp_const = 0.1 // 'slippery' factor
 
 /*	
 Standard rotation duration (rotation with a change in magnitude of 1) occurs
@@ -76,9 +77,8 @@ Change magnitude is calculated by as strict vector difference, not by arclength
 step_val = 0.1 // time value of a frame
 time_scale = 0 // rotation duration
 time = 0 // time value of the current frame
-#macro sp 10 // speed modifier
-#macro special_speed_cap 15
-#macro global_speed_cap 25
+sp = 5 // speed modifier
+special_speed_cap = 10
 // end:		movement
 // begin:	grapple
 // Grapple functionality here is WIP
@@ -87,8 +87,7 @@ function end_grapple() {
 	grapple_distance_scale = 0
 	grapple_target = noone
 }
-
-
+	
 function calc_grapple_vector_mod() {
 	grapple_vector = new Vector2(grapple_target.x - x, grapple_target.y - y)
 	grapple_distance = min(magnitude_v2(grapple_vector), grapple_distance_scale)
