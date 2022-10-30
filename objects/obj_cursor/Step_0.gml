@@ -1,2 +1,2 @@
-x = mouse_x
-y = mouse_y
+x = follow_target.x
+y = follow_target.y

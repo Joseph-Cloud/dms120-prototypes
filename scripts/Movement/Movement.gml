@@ -4,7 +4,8 @@ function add_to_mod_v(nmod_v, obj_id) {
 	obj_id.mod_v = add_v2(obj_id.mod_v, nmod_v)
 }
 
-function calc_new_move_vector(nmove_v, move_v, prev_v, cur_v, interp_mod, time, time_scale) {
+function calc_new_move_vector(nmove_v, move_v, prev_v, cur_v, mod_v, interp_mod, time, time_scale) {
+	nmove_v = add_v2(nmove_v, mod_v)
 	if !equals_v2(nmove_v, move_v) {
 		move_v = nmove_v
 		prev_v = cur_v

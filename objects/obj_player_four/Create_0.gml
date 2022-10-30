@@ -43,7 +43,7 @@ function calc_current_vector(new_mv, interp_mod) {
 	if !equals_v2(new_mv, move_v) {
 		move_v = new_mv
 		prev_v = cur_v
-		var scale_increase = magnitude_v2(subtract_v2(move_v, prev_v)) * interp_mod
+		var scale_increase = 1 /*magnitude_v2(subtract_v2(move_v, prev_v))*/// * interp_mod
 		//time_scale = time + scale_increase
 		if time_scale - time < scale_increase
 			time_scale += scale_increase - (time_scale - time)
@@ -56,6 +56,13 @@ function calc_current_vector(new_mv, interp_mod) {
 	time = min(time + step_val, time_scale)
 	return new_cv
 }
+
+cursor = instance_create_layer(x, y, "cursor", obj_cursor,
+{
+	follow_target : instance_create_layer(x, y, "cursor", obj_mouse)
+})
+
+
 
 move_v = new Vector2(0, 0)
 prev_v = new Vector2(0, 0)
@@ -77,8 +84,8 @@ Change magnitude is calculated by as strict vector difference, not by arclength
 step_val = 0.1 // time value of a frame
 time_scale = 0 // rotation duration
 time = 0 // time value of the current frame
-sp = 5 // speed modifier
-special_speed_cap = 10
+sp = 10 // speed modifier
+special_speed_cap = 15
 // end:		movement
 // begin:	grapple
 // Grapple functionality here is WIP
@@ -124,6 +131,7 @@ function handle_grapple_key_press() {
 	}
 }
 
+grapple = noone
 grapple_target = noone
 grapple_distance_scale = 0
 #macro grapple_sp_mod 0.1
