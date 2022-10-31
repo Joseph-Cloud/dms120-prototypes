@@ -21,3 +21,5 @@ step_val	= 0.1 // time value of a frame
 time_scale	= 0 // rotation duration
 time		= 0 // time value of the current frame
 sp			= 5 // speed modifier
+
+event_inherited()
