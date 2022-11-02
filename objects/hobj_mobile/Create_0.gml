@@ -22,4 +22,29 @@ time_scale	= 0 // rotation duration
 time		= 0 // time value of the current frame
 sp			= 5 // speed modifier
 
+function calc_new_move_vector() {
+	nmove_v = add_v2(nmove_v, mod_v)
+	if !equals_v2(nmove_v, move_v) {
+		move_v = nmove_v
+		prev_v = cur_v
+		var scale_increase = magnitude_v2(subtract_v2(move_v, prev_v)) * interp_mod
+		if time_scale - time < scale_increase
+			time_scale += scale_increase - (time_scale - time)
+	}
+	if time == time_scale {
+		time = 0
+		time_scale = 0
+	}
+	time = min(time + step_val, time_scale)
+	return interpolate_rot_v2(prev_v, move_v, time, time_scale)
+}
+
+function halt() {
+	nmove_v = new Vector2(0, 0)
+	move_v	= new Vector2(0, 0)
+	prev_v	= new Vector2(0, 0)
+	cur_v	= new Vector2(0, 0)
+	mod_v	= new Vector2(0, 0)
+}
+
 event_inherited()

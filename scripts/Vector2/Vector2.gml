@@ -3,6 +3,10 @@ function Vector2(_x, _y) constructor {
 	y = _y
 }
 
+function negative_v2(v) {
+	return new Vector2(v.x * -1, v.y * -1)	
+}
+
 function unit_v2(v) {
 	if (zero_v2(v)) return v
 	mag = magnitude_v2(v)

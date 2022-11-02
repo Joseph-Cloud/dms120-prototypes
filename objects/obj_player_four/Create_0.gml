@@ -131,12 +131,13 @@ function handle_grapple_key_press() {
 	}
 }
 
+grapple_weight = GrappleWeight.Heavy
 grapple = noone
 grapple_target = noone
 grapple_distance_scale = 0
-#macro grapple_sp_mod 0.1
+grapple_sp_mod = 0.1
 //#macro grapple_sp 15
-#macro grapple_interp_mod 0.2
+grapple_interp_mod = 0.2
 // end grapple
 // begin:	sprite handling
 function handle_sprite_by_state() {

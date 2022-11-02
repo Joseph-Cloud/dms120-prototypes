@@ -3,7 +3,7 @@ key_grapple = keyboard_check_pressed(ord("X"))
 key_grapple_released = keyboard_check_released(ord("X"))
 
 
-if key_grapple {
+if (key_grapple) {
 	grapple = instance_create_layer(x, y, layer, obj_grapple, 
 	{
 		origin: id,
@@ -11,12 +11,14 @@ if key_grapple {
 	})
 }
 
-if key_grapple_released {
+if (key_grapple_released) {
 	player_state = PlayerState.Move
-	instance_destroy(grapple)
-	grapple = noone
+	if (grapple != noone) {
+		grapple.retracting = true
+		grapple = noone
+	}
 }
 
-if player_state == PlayerState.Grapple {
+if (player_state == PlayerState.Grapple) {
 	interp_mod = max(interp_mod, grapple_interp_mod)
 }
