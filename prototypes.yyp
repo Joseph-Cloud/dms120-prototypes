@@ -7,6 +7,7 @@
     {"id":{"name":"obj_player_four","path":"objects/obj_player_four/obj_player_four.yy",},"order":3,},
     {"id":{"name":"Macros","path":"scripts/Macros/Macros.yy",},"order":3,},
     {"id":{"name":"spr_player_stopping","path":"sprites/spr_player_stopping/spr_player_stopping.yy",},"order":6,},
+    {"id":{"name":"obj_enemy_direct_pathing","path":"objects/obj_enemy_direct_pathing/obj_enemy_direct_pathing.yy",},"order":12,},
     {"id":{"name":"Vector2","path":"scripts/Vector2/Vector2.yy",},"order":0,},
     {"id":{"name":"obj_enemy_placeholder","path":"objects/obj_enemy_placeholder/obj_enemy_placeholder.yy",},"order":9,},
     {"id":{"name":"hobj_physics","path":"objects/hobj_physics/hobj_physics.yy",},"order":6,},

@@ -51,10 +51,10 @@ function zero_v2(v) {
 }
 
 function interpolate_rot_v2(v1, v2, t, T) {
-	if T == 0 return new Vector2(v2.x, v2.y)
+	if (T == 0) return new Vector2(v2.x, v2.y)
 	return add_v2(scale_v2(v1, cos(t/T * pi/2)), scale_v2(v2, sin(t/T * pi/2)))
 }
 
-function vector_between_v2(x1, y1, x2, y2) {
-	return new Vector2(x2 - x1, y2 - y1)	
+function compare_direction_v2(v1, v2) {
+	return v1.x * v2.x > 0 && v1.y * v2.y > 0
 }

@@ -1,5 +1,11 @@
-if (x > room_width || x < 0 || y > room_height || y < 0) {
+if ((x > room_width || x < 0 || y > room_height || y < 0)
+	|| (compare_direction_v2(move_v, new Vector2(origin.x - x, origin.y - y))
+	&& point_distance(x, y, origin.x, origin.y) > distance_const)) {
 	retracting = true
+}
+
+if (follow_target != noone) {
+	show_debug_message(point_distance(x, y, origin.x, origin.y))
 }
 
 if (retracting) {
