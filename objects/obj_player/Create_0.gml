@@ -7,19 +7,6 @@ enum PlayerState {
 
 player_state = PlayerState.Idle;
 
-function normalize_move_by_state(move_v) {
-	switch player_state {
-		case PlayerState.Idle:
-		case PlayerState.Move:
-			return normal_cap_v2(move_v, sp);
-			break;
-		case PlayerState.Grapple:
-		case PlayerState.Attack:
-			return normal_cap_v2(move_v, special_speed_cap);
-			break;
-	}
-}
-
 // Create player cursor
 cursor = instance_create_layer(x, y, "cursor", obj_cursor,
 {
@@ -48,5 +35,18 @@ function handle_sprite_by_state() {
 // Inherit the parent event
 event_inherited();
 
+function normalize_move_by_state() {
+	switch player_state {
+		case PlayerState.Idle:
+		case PlayerState.Move:
+			cur_v = normal_cap_v2(cur_v, sp);
+			break;
+		case PlayerState.Grapple:
+		case PlayerState.Attack:
+			cur_v = normal_cap_v2(cur_v, special_speed_cap);
+			break;
+	}
+}
+
 id.sp = 10; // speed modifier
-special_speed_cap = 25;
+special_speed_cap = 20;

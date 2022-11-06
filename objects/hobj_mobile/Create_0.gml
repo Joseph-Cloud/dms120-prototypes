@@ -37,7 +37,7 @@ function calc_new_move_vector() {
 		time_scale = 0;
 	}
 	time = min(time + step_val, time_scale);
-	return interpolate_rot_v2(prev_v, move_v, time, time_scale);
+	cur_v = interpolate_rot_v2(prev_v, move_v, time, time_scale);
 }
 
 function halt() {
@@ -47,5 +47,7 @@ function halt() {
 	cur_v	= new Vector2(0, 0);
 	mod_v	= new Vector2(0, 0);
 }
+
+function normalize_move_by_state() {}
 
 event_inherited();
