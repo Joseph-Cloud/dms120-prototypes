@@ -9,7 +9,10 @@ if (follow_target != noone) {
 }
 
 if (retracting) {
-	target = noone;
+	if (target != noone) {
+		if (object_get_parent(target.object_index) == hobj_enemy) target.enemy_state = EnemyState.Move;
+		target = noone;
+	}
 	if (point_distance(x, y, origin.x, origin.y) < distance_const) {
 		if (variable_instance_exists(origin, "grapple")) origin.grapple = noone;
 		instance_destroy(id);
@@ -21,6 +24,7 @@ if (retracting) {
 if (target != noone) {
 	if (point_distance(x, y, origin.x, origin.y) < distance_const) {
 		if (variable_instance_exists(origin, "grapple")) origin.grapple = noone;
+		if (object_get_parent(target.object_index) == hobj_enemy) target.enemy_state = EnemyState.Move;
 		instance_destroy(id);
 	}
 	halt();
@@ -32,8 +36,8 @@ if (target != noone) {
 	} else if (origin.grapple_weight < target.grapple_weight) {
 		add_to_mod_v(grapple_vector, origin);
 	} else {
-		add_to_mod_v(grapple_vector, origin);
-		add_to_mod_v(negative_v2(grapple_vector), target);
+		add_to_mod_v(scale_v2(grapple_vector, 0.5), origin);
+		add_to_mod_v(scale_v2(grapple_vector, -0.5), target);
 	}
 	return;
 }
@@ -57,11 +61,13 @@ if (collided_obj != noone) {
 	target = collided_obj;
 	
 	if (target.grapple_weight == GrappleWeight.Interactive) {
-		halt();
 		target.interact();
 		target = noone;
 		retracting = true;
+		halt();
 		return;
+	} else if (object_get_parent(target.object_index) == hobj_enemy) {
+		target.enemy_state = EnemyState.Special;
 	}
 	
 	grapple_distance_scale = point_distance(origin.x, origin.y, target.x, target.y);

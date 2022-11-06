@@ -6,7 +6,7 @@ retracting		= false;
 distance_const	= sprite_half_size * 2;
 
 grapple_distance_scale	= 0;
-grapple_sp_mod			= 0.05;
+grapple_sp_mod			= 2;
 
 event_inherited();
 

@@ -49,4 +49,3 @@ function normalize_move_by_state() {
 }
 
 id.sp = 10; // speed modifier
-special_speed_cap = 20;

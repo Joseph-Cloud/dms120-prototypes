@@ -24,6 +24,7 @@
     {"id":{"name":"Grapple","path":"scripts/Grapple/Grapple.yy",},"order":4,},
     {"id":{"name":"spr_lever_activated","path":"sprites/spr_lever_activated/spr_lever_activated.yy",},"order":9,},
     {"id":{"name":"obj_interact_placeholder","path":"objects/obj_interact_placeholder/obj_interact_placeholder.yy",},"order":15,},
+    {"id":{"name":"spr_enemy_moving","path":"sprites/spr_enemy_moving/spr_enemy_moving.yy",},"order":11,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":8,},
     {"id":{"name":"spr_enemy","path":"sprites/spr_enemy/spr_enemy.yy",},"order":1,},
     {"id":{"name":"obj_grapple","path":"objects/obj_grapple/obj_grapple.yy",},"order":10,},

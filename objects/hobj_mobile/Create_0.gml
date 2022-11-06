@@ -17,10 +17,11 @@ Change magnitude is calculated by as strict vector difference, not by arclength
 	of the rotation (makes opposite directional changes feel better) 
 */
 
-step_val	= 0.1; // time value of a frame
-time_scale	= 0; // rotation duration
-time		= 0; // time value of the current frame
-sp			= 5; // speed modifier
+special_speed_cap	= 20; // speed cap for special states
+step_val			= 0.1; // time value of a frame
+time_scale			= 0; // rotation duration
+time				= 0; // time value of the current frame
+sp					= 10; // speed modifier
 
 function calc_new_move_vector() {
 	nmove_v = add_v2(nmove_v, mod_v);
