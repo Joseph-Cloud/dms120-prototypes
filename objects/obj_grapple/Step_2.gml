@@ -1,7 +1,7 @@
 if (target != noone) {
-	x = target.x
-	y = target.y
-	return
+	x = target.x;
+	y = target.y;
+	return;
 }
 
-event_inherited()
+event_inherited();
