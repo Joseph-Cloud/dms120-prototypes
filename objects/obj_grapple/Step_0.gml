@@ -33,11 +33,15 @@ if (target != noone) {
 	var grapple_vector = scale_v2(grapple_direction, (grapple_distance/grapple_distance_scale) * grapple_sp_mod);
 	if (origin.grapple_weight > target.grapple_weight) {
 		add_to_mod_v(negative_v2(grapple_vector), target);
+		//target.interp_mod = 0.1;
 	} else if (origin.grapple_weight < target.grapple_weight) {
 		add_to_mod_v(grapple_vector, origin);
+		//origin.interp_mod = 0.1;
 	} else {
 		add_to_mod_v(scale_v2(grapple_vector, 0.5), origin);
 		add_to_mod_v(scale_v2(grapple_vector, -0.5), target);
+		//target.interp_mod = 0.1;
+		//origin.interp_mod = 0.1;
 	}
 	return;
 }

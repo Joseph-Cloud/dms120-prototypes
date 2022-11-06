@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "hobj_physics",
-    "path": "objects/hobj_physics/hobj_physics.yy",
+    "name": "hobj_grappleable",
+    "path": "objects/hobj_grappleable/hobj_grappleable.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
