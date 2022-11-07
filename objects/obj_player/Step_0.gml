@@ -35,6 +35,17 @@ key_projectile = mouse_check_button_pressed(mb_right);
 if (key_projectile) {
 	instance_create_layer(x, y, layer, obj_projectile,
 	{
-		move_v: unit_v2(new Vector2(cursor.x - x, cursor.y - y))
+		origin: id,
+		move_v: unit_v2(new Vector2(cursor.x - x, cursor.y - y)),
+	});
+}
+
+key_sword = mouse_check_button_pressed(mb_left);
+
+if (key_sword) {
+	instance_create_layer(x, y, layer, obj_sword,
+	{
+		origin: id,
+		angle: point_direction(x, y, cursor.x, cursor.y),
 	});
 }

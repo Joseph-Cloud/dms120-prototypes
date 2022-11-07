@@ -9,8 +9,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "hobj_physics",
-    "path": "objects/hobj_physics/hobj_physics.yy",
+    "name": "hobj_mobile",
+    "path": "objects/hobj_mobile/hobj_mobile.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

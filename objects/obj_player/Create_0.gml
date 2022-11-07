@@ -13,7 +13,8 @@ cursor = instance_create_layer(x, y, "cursor", obj_cursor,
 	follow_target : instance_create_layer(x, y, "cursor", obj_mouse)
 });
 // Instantiate empty grapple
-grapple = noone;
+grapple			= noone;
+grapple_weight	= GrappleWeight.Neutral;
 
 function handle_sprite_by_state() {
 	switch player_state {
@@ -48,4 +49,5 @@ function normalize_move_by_state() {
 	}
 }
 
-id.sp = 10; // speed modifier
+hp		= 6;
+id.sp	= 10; // speed modifier

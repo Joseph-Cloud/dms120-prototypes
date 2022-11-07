@@ -9,6 +9,8 @@ enemy_state = EnemyState.Idle;
 
 event_inherited();
 
+id.grapple_weight = GrappleWeight.Neutral;
+
 function normalize_move_by_state() {
 	switch enemy_state {
 		case EnemyState.Idle:

@@ -1,5 +1,7 @@
 event_inherited();
 
+attack_interval_counter = ranged_attack_interval
+
 function handle_sprite_by_state() {
 	switch enemy_state {
 		case EnemyState.Idle:

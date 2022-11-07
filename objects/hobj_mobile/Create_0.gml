@@ -49,6 +49,26 @@ function halt() {
 	mod_v	= new Vector2(0, 0);
 }
 
+function handle_collision_x(obj_type) {
+	if (place_meeting(x + cur_v.x, y, obj_type)) {
+		while(!place_meeting(x + sign(cur_v.x), y, obj_type)) {
+			x = x + sign(cur_v.x);	
+		}
+		return true;
+	}
+	return false;
+}
+
+function handle_collision_y(obj_type) {
+	if (place_meeting(x, y + cur_v.y, obj_type)) {
+		while(!place_meeting(x, y + sign(cur_v.y), obj_type)) {
+			y = y + sign(cur_v.y);	
+		}
+		return true;
+	}
+	return false;
+}
+
 function normalize_move_by_state() {}
 
 event_inherited();
