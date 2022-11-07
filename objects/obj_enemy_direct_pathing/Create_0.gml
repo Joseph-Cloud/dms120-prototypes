@@ -1,5 +1,7 @@
 event_inherited();
 
+path = path_add();
+
 function handle_sprite_by_state() {
 	switch enemy_state {
 		case EnemyState.Idle:

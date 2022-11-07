@@ -4,9 +4,9 @@ prev_v	= new Vector2(0, 0);
 cur_v	= new Vector2(0, 0);
 mod_v	= new Vector2(0, 0);
 
-interp_mod			= 0.05;
-interp_degrade_rate = 0.005;
-interp_const		= 0.05; // 'slippery' factor
+interp_mod			= 0.1;
+interp_degrade_rate = 0.05;
+interp_const		= 0.1; // 'slippery' factor
 
 /*	
 Standard rotation duration (rotation with a change in magnitude of 1) occurs
@@ -20,6 +20,7 @@ Change magnitude is calculated by as strict vector difference, not by arclength
 special_speed_cap	= 20; // speed cap for special states
 step_val			= 0.1; // time value of a frame
 time_scale			= 0; // rotation duration
+max_time_scale		= 10;
 time				= 0; // time value of the current frame
 sp					= 5; // speed modifier
 
@@ -30,8 +31,10 @@ function calc_new_move_vector() {
 		prev_v = cur_v;
 		var scale_increase = magnitude_v2(subtract_v2(move_v, prev_v)) * interp_mod;
 		//if time_scale - time < scale_increase
-			//time_scale += scale_increase - (time_scale - time)
-		time_scale = time + scale_increase;
+		time_scale += scale_increase - (time_scale - time)
+		time_scale = min(time_scale, max_time_scale);
+		show_debug_message(time_scale);
+		//time_scale = time + scale_increase;
 	}
 	if (time == time_scale) {
 		time = 0;
