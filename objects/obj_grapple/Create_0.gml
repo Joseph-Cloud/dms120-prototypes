@@ -10,6 +10,7 @@ grapple_sp			= 30;
 
 event_inherited();
 
-id.interp_mod	= 0.1;
+id.interp_mod	= 0.01;
+id.interp_const = 0.01;
 id.step_val		= 0.25;
 id.sp			= 50;

@@ -33,7 +33,7 @@ if (key_grapple_released) {
 key_projectile = mouse_check_button_pressed(mb_right);
 
 if (key_projectile) {
-	instance_create_layer(x, y, layer, obj_projectile,
+	instance_create_layer(x, y, layer, obj_player_projectile,
 	{
 		origin: id,
 		move_v: unit_v2(new Vector2(cursor.x - x, cursor.y - y)),
@@ -43,9 +43,20 @@ if (key_projectile) {
 key_sword = mouse_check_button_pressed(mb_left);
 
 if (key_sword) {
-	instance_create_layer(x, y, layer, obj_sword,
+	sword = instance_create_layer(x, y, layer, obj_sword,
 	{
 		origin: id,
 		angle: point_direction(x, y, cursor.x, cursor.y),
 	});
+	player_state = PlayerState.Attack;
+}
+
+if (player_state == PlayerState.Attack && !instance_exists(sword)) {
+	player_state = PlayerState.Move;
+}
+
+key_jump_attack = keyboard_check(vk_space);
+
+if (key_jump_attack) {
+	
 }

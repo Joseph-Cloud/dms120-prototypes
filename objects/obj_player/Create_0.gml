@@ -16,6 +16,9 @@ cursor = instance_create_layer(x, y, "cursor", obj_cursor,
 grapple			= noone;
 grapple_weight	= GrappleWeight.Neutral;
 
+// Instantiate empty sword
+sword = noone;
+
 function handle_sprite_by_state() {
 	switch player_state {
 		case PlayerState.Idle:
@@ -25,7 +28,7 @@ function handle_sprite_by_state() {
 			sprite_index = spr_player_moving;
 			break;
 		case PlayerState.Attack:
-			//sprite_index = spr_player_attack
+			sprite_index = spr_player_attacking;
 			break;
 		case PlayerState.Grapple:
 			sprite_index = spr_player_grappling;

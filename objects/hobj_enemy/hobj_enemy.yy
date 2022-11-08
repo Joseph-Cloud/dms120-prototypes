@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "hobj_enemy",
   "spriteId": null,
-  "solid": false,
+  "solid": true,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,

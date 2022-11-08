@@ -1,4 +1,4 @@
-draw_path(path, x, y, false);
+draw_path(path, x, y, true);
 
 event_inherited();
 

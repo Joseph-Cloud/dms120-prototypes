@@ -1,6 +1,10 @@
 event_inherited();
 
+// handle pathing
 path = path_add();
+
+repath_time = 10;
+repath_timer = repath_time;
 
 function handle_sprite_by_state() {
 	switch enemy_state {

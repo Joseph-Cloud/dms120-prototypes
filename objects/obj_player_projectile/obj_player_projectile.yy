@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_projectile",
+  "name": "obj_player_projectile",
   "spriteId": {
     "name": "spr_lever_activated",
     "path": "sprites/spr_lever_activated/spr_lever_activated.yy",
