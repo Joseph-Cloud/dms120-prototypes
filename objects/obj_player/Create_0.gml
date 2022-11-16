@@ -3,6 +3,7 @@ enum PlayerState {
 	Move,
 	Attack,
 	Grapple,
+	Jump,
 }
 
 player_state = PlayerState.Idle;
@@ -49,8 +50,20 @@ function normalize_move_by_state() {
 		case PlayerState.Attack:
 			cur_v = normal_cap_v2(cur_v, special_speed_cap);
 			break;
+		case PlayerState.Jump:
+			cur_v = normal_cap_v2(cur_v, jump_speed_cap);
+			break;
 	}
 }
 
 hp		= 6;
 id.sp	= 10; // speed modifier
+
+// jump attack values
+jump_exp		= 1.5;
+jump_max_height	= 200;
+jump_time		= 40;
+jump_timer		= 0;
+jump_max_speed	= ((2 * jump_exp + 2) * jump_max_height) / jump_time;
+jump_max_scale	= 2;
+jump_speed_cap	= 5;

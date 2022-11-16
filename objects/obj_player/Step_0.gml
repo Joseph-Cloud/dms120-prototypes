@@ -55,8 +55,18 @@ if (player_state == PlayerState.Attack && !instance_exists(sword)) {
 	player_state = PlayerState.Move;
 }
 
-key_jump_attack = keyboard_check(vk_space);
+key_jump_attack = keyboard_check_pressed(vk_space);
 
 if (key_jump_attack) {
-	
+	player_state = PlayerState.Jump;
+	jump_timer = 0;
+}
+
+if (player_state == PlayerState.Jump) {
+	if (jump_timer == jump_time) {
+		player_state = PlayerState.Move;
+	}
+	show_debug_message(jump_max_speed/power_ext(jump_time/2, jump_exp) * power_ext(jump_time/2 - jump_timer, jump_exp));
+	y -= jump_max_speed/power_ext(jump_time/2, jump_exp) * power_ext(jump_time/2 - jump_timer, jump_exp);
+	jump_timer++;
 }

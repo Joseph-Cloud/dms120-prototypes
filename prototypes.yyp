@@ -19,6 +19,7 @@
     {"id":{"name":"hobj_mobile","path":"objects/hobj_mobile/hobj_mobile.yy",},"order":7,},
     {"id":{"name":"spr_player_grappling","path":"sprites/spr_player_grappling/spr_player_grappling.yy",},"order":7,},
     {"id":{"name":"Movement","path":"scripts/Movement/Movement.yy",},"order":1,},
+    {"id":{"name":"Utils","path":"scripts/Utils/Utils.yy",},"order":5,},
     {"id":{"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},"order":0,},
     {"id":{"name":"obj_lever","path":"objects/obj_lever/obj_lever.yy",},"order":14,},
     {"id":{"name":"spr_cursor","path":"sprites/spr_cursor/spr_cursor.yy",},"order":2,},

@@ -4,4 +4,3 @@ enum GrappleWeight {
 	Heavy,
 	Interactive,
 }
-
